@@ -18,72 +18,184 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html { scroll-behavior:smooth }
-    .prose h3 { margin-top: 1.25rem; }
+    html { scroll-behavior: smooth; }
+    body { background-color: #f1f5f9; }
+    .hero-bg {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #1e40af 100%);
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #3b82f6;
+      margin-bottom: 0.4rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 1rem;
+      border: 1px solid #e2e8f0;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 30px rgba(30, 58, 138, 0.10);
+      transform: translateY(-2px);
+    }
+    .card-accent {
+      border-top: 3px solid #3b82f6;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-radius: 999px;
+      padding: 2px 10px;
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+      color: white;
+      border-radius: 0.75rem;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-outline {
+      border: 1.5px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: #93c5fd; color: #93c5fd; }
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #94a3b8;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #ffffff; }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0f172a;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 2.5rem; height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      border-radius: 2px;
+    }
+    .skill-pill {
+      display: inline-block;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #334155;
+      margin: 3px;
+    }
   </style>
 </head>
-<body class="bg-white text-gray-900 font-[Inter]">
+<body class="text-gray-900 font-[Inter]">
+
   <!-- Nav -->
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-100">
+  <header class="sticky top-0 z-50 hero-bg border-b border-white/10 shadow-md">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="font-semibold">Lalith Polikepati</a>
-      <nav class="hidden sm:flex gap-5 text-sm">
-        <a href="#about" class="hover:opacity-70">About</a>
-        <a href="#experience" class="hover:opacity-70">Experience</a>
-        <a href="#projects" class="hover:opacity-70">Projects</a>
-        <a href="#resume" class="hover:opacity-70">Resume</a>
-        <a href="#contact" class="hover:opacity-70">Contact</a>
+      <a href="#home" class="font-bold text-white tracking-tight">Lalith Polikepati</a>
+      <nav class="hidden sm:flex gap-6">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#resume" class="nav-link">Resume</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
-      <a href="#contact" class="sm:hidden text-sm px-3 py-1 rounded-full border">Contact</a>
+      <a href="#contact" class="sm:hidden btn-outline text-xs px-3 py-1">Contact</a>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="home" class="max-w-5xl mx-auto px-4 py-14">
-    <div class="grid md:grid-cols-5 gap-10 items-center">
-      <div class="md:col-span-3">
-        <p class="text-xs uppercase tracking-widest text-gray-500">Business Analytics & AI @ UTD</p>
-        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mt-2">Turning data into decisions.</h1>
-        <p class="mt-4 text-gray-700">Master’s student at JSOM focused on <strong>data analysis, business analytics, and applied machine learning</strong>. I bridge engineering and business—turning data into insights that drive outcomes.</p>
-        <div class="mt-6 flex gap-3">
-          <a href="#projects" class="px-4 py-2 rounded-xl bg-gray-900 text-white text-sm">See Projects</a>
-          <a href="#resume" class="px-4 py-2 rounded-xl border text-sm">Download Resume</a>
+  <section id="home" class="hero-bg">
+    <div class="max-w-5xl mx-auto px-4 py-20">
+      <div class="grid md:grid-cols-5 gap-12 items-center">
+        <div class="md:col-span-3">
+          <span class="text-xs uppercase tracking-widest text-blue-300 font-semibold">Business Analytics & AI @ UTD</span>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mt-3 text-white">Turning data<br/>into decisions.</h1>
+          <p class="mt-4 text-slate-300 leading-relaxed">Master's student at JSOM focused on <strong class="text-white">data analysis, business analytics, and applied machine learning</strong>. I bridge engineering and business — turning data into insights that drive outcomes.</p>
+          <div class="mt-8 flex gap-3 flex-wrap">
+            <a href="#projects" class="btn-primary">See Projects</a>
+            <a href="#resume" class="btn-outline">Download Resume</a>
+          </div>
         </div>
-      </div>
-      <div class="md:col-span-2">
-        <img src="portfoliopic.jpeg" alt="Lalith Polikepati" class="aspect-square w-full object-cover object-top rounded-2xl border shadow-sm" />
+        <div class="md:col-span-2 flex justify-center">
+          <img src="portfoliopic.jpeg" alt="Lalith Polikepati" class="w-64 h-64 object-cover object-top rounded-full border-4 border-blue-400 shadow-2xl" />
+        </div>
       </div>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="border-y border-gray-100 bg-gray-50/50">
-    <div class="max-w-5xl mx-auto px-4 py-14">
-      <h2 class="text-xl font-bold">About</h2>
-      <div class="mt-4 grid md:grid-cols-3 gap-8">
-        <div class="md:col-span-2 space-y-4 text-gray-800 leading-relaxed">
-          <p>Hi, I’m <strong>Lalith Polikepati</strong>, a Master’s student in <strong>Business Analytics & AI</strong> at the Jindal School of Management, UT Dallas (Aug 2024–May 2026). I’ve also completed the <strong>Graduate Certificate in Applied Machine Learning</strong> — building a strong foundation in ML theory and real-world applications.</p>
-          <p>Previously, I contributed at <strong>Complit Solutions</strong> and <strong>Dev.ai</strong> in development and quality analysis, improving data accuracy, reducing errors, and delivering efficient tools. I also freelance—engineering applications like <em>Breakfastnfootball</em> with React & TypeScript.</p>
-          <p>I’m targeting roles in <strong>Data Analysis</strong>, <strong>Business Analytics</strong>, and <strong>Strategy</strong>, where I can connect technology with business goals.</p>
+  <section id="about" class="bg-white">
+    <div class="max-w-5xl mx-auto px-4 py-16">
+      <span class="section-label">Who I Am</span>
+      <h2 class="section-title">About</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-8">
+        <div class="md:col-span-2 space-y-4 text-gray-700 leading-relaxed">
+          <p>Hi, I'm <strong class="text-gray-900">Lalith Polikepati</strong>, a Master's student in <strong class="text-gray-900">Business Analytics & AI</strong> at the Jindal School of Management, UT Dallas (Aug 2024–May 2026). I've also completed the <strong class="text-gray-900">Graduate Certificate in Applied Machine Learning</strong> — building a strong foundation in ML theory and real-world applications.</p>
+          <p>Previously, I contributed at <strong class="text-gray-900">Complit Solutions</strong> and <strong class="text-gray-900">Dev.ai</strong> in development and quality analysis, improving data accuracy, reducing errors, and delivering efficient tools. I also freelance — engineering applications like <em>Breakfastnfootball</em> with React & TypeScript.</p>
+          <p>I'm targeting roles in <strong class="text-gray-900">Data Analysis</strong>, <strong class="text-gray-900">Business Analytics</strong>, and <strong class="text-gray-900">Strategy</strong>, where I can connect technology with business goals.</p>
+          <div class="pt-2">
+            <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Skills</div>
+            <div>
+              <span class="skill-pill">Python</span><span class="skill-pill">R</span><span class="skill-pill">SQL</span>
+              <span class="skill-pill">React</span><span class="skill-pill">TypeScript</span><span class="skill-pill">HTML/CSS</span>
+              <span class="skill-pill">Machine Learning</span><span class="skill-pill">Deep Learning</span><span class="skill-pill">CNNs</span>
+              <span class="skill-pill">Tableau</span><span class="skill-pill">Power BI</span><span class="skill-pill">Azure</span>
+              <span class="skill-pill">Git</span><span class="skill-pill">CI/CD</span><span class="skill-pill">Agile</span>
+            </div>
+          </div>
         </div>
-        <aside class="space-y-2 text-sm">
-          <div class="p-4 rounded-xl border">
-            <div class="font-semibold">Skills</div>
-            <ul class="mt-2 list-disc list-inside text-gray-700">
-              <li>Python, R, React, TypeScript, JS, HTML/CSS</li>
-              <li>SQL, DBMS, Data Analysis, ML/DL (CNNs)</li>
-              <li>Power BI, Tableau, Microsoft Azure</li>
-              <li>Azure DevOps, Git, CI/CD</li>
-              <li>Agile (Scrum), API integration</li>
+        <aside class="space-y-4 text-sm">
+          <div class="card p-5">
+            <div class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs">🎓</span>
+              Education
+            </div>
+            <ul class="space-y-3 text-gray-600">
+              <li>
+                <div class="font-medium text-gray-800">M.S. Business Analytics & AI</div>
+                <div class="text-xs text-gray-400">UT Dallas · 2024–2026</div>
+              </li>
+              <li>
+                <div class="font-medium text-gray-800">Grad. Cert. Applied ML ✓</div>
+                <div class="text-xs text-gray-400">UT Dallas · Completed</div>
+              </li>
+              <li>
+                <div class="font-medium text-gray-800">B.Tech. Computer Science</div>
+                <div class="text-xs text-gray-400">GITAM University</div>
+              </li>
             </ul>
           </div>
-          <div class="p-4 rounded-xl border">
-            <div class="font-semibold">Education</div>
-            <ul class="mt-2 list-disc list-inside text-gray-700">
-              <li>M.S. Business Analytics & AI — UT Dallas</li>
-              <li>Graduate Cert. in Applied ML — UT Dallas ✓</li>
-              <li>B.Tech. Computer Science — GITAM University</li>
-            </ul>
+          <div class="card p-5">
+            <div class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs">📍</span>
+              Looking For
+            </div>
+            <p class="text-gray-600 text-sm">Data Analysis · Business Analytics · Strategy roles. Open to internships and full-time.</p>
           </div>
         </aside>
       </div>
@@ -91,145 +203,161 @@
   </section>
 
   <!-- Experience -->
-  <section id="experience" class="max-w-5xl mx-auto px-4 py-14">
-    <h2 class="text-xl font-bold">Experience</h2>
-
-    <!-- Expanded cards -->
-    <div class="mt-8 grid md:grid-cols-2 gap-6">
-      <article class="p-5 rounded-2xl border hover:shadow-sm transition">
-        <div class="text-sm text-gray-500">Complit Solutions • Sept 2022 – Mar 2024</div>
-        <h3 class="mt-1 font-semibold text-lg">Software Developer & QA Analyst</h3>
-        <ul class="mt-2 text-gray-700 list-disc list-inside">
-          <li>Managed U.S. tax filing software workflows using Visual Studio & Azure DevOps.</li>
-          <li>Developed/tested 5+ tax conversion tools, improving data accuracy by <strong>20%</strong> and reducing errors by <strong>15%</strong>.</li>
-          <li>Resolved 100+ issues; achieved <strong>95% project success rate</strong> and <strong>99% bug-free delivery</strong>.</li>
-        </ul>
-      </article>
-
-      <article class="p-5 rounded-2xl border hover:shadow-sm transition">
-        <div class="text-sm text-gray-500">Dev.ai • Jul 2021 – Apr 2022</div>
-        <h3 class="mt-1 font-semibold text-lg">Web Application Developer</h3>
-        <ul class="mt-2 text-gray-700 list-disc list-inside">
-          <li>Designed and built <em>Breakfastnfootball</em> web app using React & TypeScript.</li>
-          <li>Enhanced data efficiency by <strong>30%</strong> via optimized API integration.</li>
-          <li>Delivered real-time score updates (<2s latency) for 10+ games weekly.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="max-w-5xl mx-auto px-4 py-14">
-    <h2 class="text-xl font-bold">Projects</h2>
-    <div class="mt-8 grid md:grid-cols-2 gap-6">
-      <article class="p-5 rounded-2xl border">
-        <div class="text-sm text-gray-500">SQL, Database</div>
-        <h3 class="mt-1 font-semibold text-lg">Spotify Data Explorer</h3>
-        <ul class="mt-2 text-gray-700 list-disc list-inside">
-          <li>Built a comprehensive music preference database for user trends & recommendations.</li>
-          <li>Enhanced revenue tracking by analyzing subscriptions & ad performance.</li>
-        </ul>
-      </article>
-      <article class="p-5 rounded-2xl border">
-        <div class="text-sm text-gray-500">Deep Learning, CNN</div>
-        <h3 class="mt-1 font-semibold text-lg">Expression Detection</h3>
-        <ul class="mt-2 text-gray-700 list-disc list-inside">
-          <li>Trained CNN to detect 7 emotions with <strong>95% accuracy</strong>.</li>
-          <li>Implemented age and gender recognition using FER2013 & UTK Face datasets.</li>
-        </ul>
-      </article>
-      <article class="p-5 rounded-2xl border">
-        <div class="text-sm text-gray-500">R, Data Science</div>
-        <h3 class="mt-1 font-semibold text-lg">Superstore Sales Analysis</h3>
-        <ul class="mt-2 text-gray-700 list-disc list-inside">
-          <li>Built regression & tree models on 9,800+ records (Random Forest best: RMSE $209, R² 0.69).</li>
-          <li>Analyzed product performance, regional sales & segmentation for growth strategy.</li>
-        </ul>
-      </article>
-      <article class="p-5 rounded-2xl border">
-        <div class="flex items-center justify-between">
-          <div class="text-sm text-gray-500">Python, ML, FastAPI, React</div>
-          <div class="flex gap-3">
-            <a href="https://saa-s-churn-prediction.vercel.app" target="_blank" class="text-xs text-blue-500 hover:text-blue-700 underline">Live Demo →</a>
-            <a href="https://github.com/p-lalith/SaaS-Churn-Prediction" target="_blank" class="text-xs text-gray-400 hover:text-gray-700 underline">GitHub →</a>
-          </div>
-        </div>
-        <h3 class="mt-1 font-semibold text-lg">SaaS Churn Prediction</h3>
-        <ul class="mt-2 text-gray-700 list-disc list-inside">
-          <li>Built churn prediction model (Random Forest, ROC-AUC 0.9998) on synthetic SaaS dataset.</li>
-          <li>Delivered full-stack dashboard: FastAPI backend + React frontend with risk scoring & CSV upload.</li>
-        </ul>
-      </article>
-      <article class="p-5 rounded-2xl border">
-        <div class="flex items-center justify-between">
-          <div class="text-sm text-gray-500">Python, ML, XGBoost</div>
-          <a href="https://github.com/p-lalith/Credit-card-fraud-detection-" target="_blank" class="text-xs text-gray-400 hover:text-gray-700 underline">GitHub →</a>
-        </div>
-        <h3 class="mt-1 font-semibold text-lg">Credit Card Fraud Detection</h3>
-        <ul class="mt-2 text-gray-700 list-disc list-inside">
-          <li>Compared LR, Decision Tree, Random Forest, and XGBoost on imbalanced Kaggle dataset.</li>
-          <li>Optimized for recall and AUC to minimize missed fraud in real-world conditions.</li>
-        </ul>
-      </article>
-      <article class="p-5 rounded-2xl border">
-        <div class="flex items-center justify-between">
-          <div class="text-sm text-gray-500">R, Regression, Analytics</div>
-          <a href="https://github.com/p-lalith/Social-Media-Ad-ROI-Analysis-" target="_blank" class="text-xs text-gray-400 hover:text-gray-700 underline">GitHub →</a>
-        </div>
-        <h3 class="mt-1 font-semibold text-lg">Social Media Ad ROI Analysis</h3>
-        <ul class="mt-2 text-gray-700 list-disc list-inside">
-          <li>Identified clicks as the strongest ROI driver; Pinterest as a negative-ROI channel.</li>
-          <li>Built regression models to surface actionable audience and platform recommendations.</li>
-        </ul>
-      </article>
-      <article class="p-5 rounded-2xl border">
-        <div class="flex items-center justify-between">
-          <div class="text-sm text-gray-500">Python, Streamlit, Federated ML</div>
-          <a href="https://github.com/p-lalith/federated-defense-app" target="_blank" class="text-xs text-gray-400 hover:text-gray-700 underline">GitHub →</a>
-        </div>
-        <h3 class="mt-1 font-semibold text-lg">FedShield — Federated Defense Lab</h3>
-        <ul class="mt-2 text-gray-700 list-disc list-inside">
-          <li>Interactive Streamlit app simulating federated learning defense against data poisoning attacks.</li>
-          <li>Implements RANSAC-based robust detection, Byzantine fault tolerance, and anomaly scoring.</li>
-        </ul>
-      </article>
-      <article class="p-5 rounded-2xl border">
-        <div class="flex items-center justify-between">
-          <div class="text-sm text-gray-500">Tableau, HR Analytics</div>
-          <a href="https://github.com/p-lalith/HR-Analytics-Tableau" target="_blank" class="text-xs text-gray-400 hover:text-gray-700 underline">GitHub →</a>
-        </div>
-        <h3 class="mt-1 font-semibold text-lg">HR Attrition Analytics Dashboard</h3>
-        <ul class="mt-2 text-gray-700 list-disc list-inside">
-          <li>Built a 6-chart Tableau dashboard on 1,470 IBM employees — attrition by job role, department, age band, overtime, and marital status.</li>
-          <li>Surfaced key drivers: Sales Reps at 39.8% attrition, overtime employees 3× more likely to leave.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <!-- Resume -->
-  <section id="resume" class="border-y border-gray-100 bg-gray-50/50">
-    <div class="max-w-5xl mx-auto px-4 py-14">
-      <h2 class="text-xl font-bold">Resume</h2>
-      <p class="text-gray-700 mt-2">Download my one‑page résumé here:</p>
-      <a href="resume.pdf" class="inline-block mt-4 px-4 py-2 rounded-xl bg-gray-900 text-white text-sm" download>Download PDF</a>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-4 py-14">
-      <h2 class="text-xl font-bold">Contact</h2>
-      <p class="text-gray-700 mt-2">Open to internships and roles in Data Science, Analytics, and Strategy.</p>
-      <div class="mt-4 grid sm:grid-cols-3 gap-3 max-w-lg">
-        <a class="px-4 py-2 rounded-xl border text-center" href="mailto:LXP230038@utdallas.edu">Email</a>
-        <a class="px-4 py-2 rounded-xl border text-center" href="https://www.linkedin.com/in/lalith-polikepati/" target="_blank">LinkedIn</a>
-        <a class="px-4 py-2 rounded-xl border text-center" href="https://github.com/p-lalith" target="_blank">GitHub</a>
+  <section id="experience" class="bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 py-16">
+      <span class="section-label">Work History</span>
+      <h2 class="section-title">Experience</h2>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <article class="card card-accent p-6">
+          <div class="text-xs text-blue-500 font-semibold uppercase tracking-wide">Sept 2022 – Mar 2024</div>
+          <h3 class="mt-1 font-bold text-lg text-gray-900">Software Developer & QA Analyst</h3>
+          <div class="text-sm text-gray-500 mb-3">Complit Solutions</div>
+          <ul class="text-gray-700 space-y-1.5 text-sm list-disc list-inside">
+            <li>Managed U.S. tax filing software workflows using Visual Studio & Azure DevOps.</li>
+            <li>Developed/tested 5+ tax conversion tools, improving data accuracy by <strong>20%</strong> and reducing errors by <strong>15%</strong>.</li>
+            <li>Resolved 100+ issues; achieved <strong>95% project success rate</strong> and <strong>99% bug-free delivery</strong>.</li>
+          </ul>
+        </article>
+        <article class="card card-accent p-6">
+          <div class="text-xs text-blue-500 font-semibold uppercase tracking-wide">Jul 2021 – Apr 2022</div>
+          <h3 class="mt-1 font-bold text-lg text-gray-900">Web Application Developer</h3>
+          <div class="text-sm text-gray-500 mb-3">Dev.ai</div>
+          <ul class="text-gray-700 space-y-1.5 text-sm list-disc list-inside">
+            <li>Designed and built <em>Breakfastnfootball</em> web app using React & TypeScript.</li>
+            <li>Enhanced data efficiency by <strong>30%</strong> via optimized API integration.</li>
+            <li>Delivered real-time score updates (&lt;2s latency) for 10+ games weekly.</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
 
-  <footer class="py-10 text-center text-xs text-gray-500">
+  <!-- Projects -->
+  <section id="projects" class="bg-white">
+    <div class="max-w-5xl mx-auto px-4 py-16">
+      <span class="section-label">What I've Built</span>
+      <h2 class="section-title">Projects</h2>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+
+        <article class="card card-accent p-6">
+          <div class="mb-2"><span class="tag">SQL</span><span class="tag">Database</span></div>
+          <h3 class="font-bold text-lg text-gray-900">Spotify Data Explorer</h3>
+          <ul class="mt-2 text-gray-600 text-sm space-y-1 list-disc list-inside">
+            <li>Built a comprehensive music preference database for user trends & recommendations.</li>
+            <li>Enhanced revenue tracking by analyzing subscriptions & ad performance.</li>
+          </ul>
+        </article>
+
+        <article class="card card-accent p-6">
+          <div class="mb-2"><span class="tag">Deep Learning</span><span class="tag">CNN</span></div>
+          <h3 class="font-bold text-lg text-gray-900">Expression Detection</h3>
+          <ul class="mt-2 text-gray-600 text-sm space-y-1 list-disc list-inside">
+            <li>Trained CNN to detect 7 emotions with <strong>95% accuracy</strong>.</li>
+            <li>Implemented age and gender recognition using FER2013 & UTK Face datasets.</li>
+          </ul>
+        </article>
+
+        <article class="card card-accent p-6">
+          <div class="mb-2"><span class="tag">R</span><span class="tag">Data Science</span></div>
+          <h3 class="font-bold text-lg text-gray-900">Superstore Sales Analysis</h3>
+          <ul class="mt-2 text-gray-600 text-sm space-y-1 list-disc list-inside">
+            <li>Built regression & tree models on 9,800+ records (Random Forest: RMSE $209, R² 0.69).</li>
+            <li>Analyzed product performance, regional sales & segmentation for growth strategy.</li>
+          </ul>
+        </article>
+
+        <article class="card card-accent p-6">
+          <div class="flex items-start justify-between mb-2">
+            <div><span class="tag">Python</span><span class="tag">ML</span><span class="tag">FastAPI</span><span class="tag">React</span></div>
+            <div class="flex gap-3 shrink-0 ml-2">
+              <a href="https://saa-s-churn-prediction.vercel.app" target="_blank" class="text-xs text-blue-500 hover:text-blue-700 font-semibold">Live →</a>
+              <a href="https://github.com/p-lalith/SaaS-Churn-Prediction" target="_blank" class="text-xs text-gray-400 hover:text-gray-700 font-semibold">GitHub →</a>
+            </div>
+          </div>
+          <h3 class="font-bold text-lg text-gray-900">SaaS Churn Prediction</h3>
+          <ul class="mt-2 text-gray-600 text-sm space-y-1 list-disc list-inside">
+            <li>Built churn prediction model (Random Forest, ROC-AUC 0.9998) on synthetic SaaS dataset.</li>
+            <li>Delivered full-stack dashboard: FastAPI backend + React frontend with risk scoring & CSV upload.</li>
+          </ul>
+        </article>
+
+        <article class="card card-accent p-6">
+          <div class="flex items-start justify-between mb-2">
+            <div><span class="tag">Python</span><span class="tag">ML</span><span class="tag">XGBoost</span></div>
+            <a href="https://github.com/p-lalith/Credit-card-fraud-detection-" target="_blank" class="text-xs text-gray-400 hover:text-gray-700 font-semibold shrink-0 ml-2">GitHub →</a>
+          </div>
+          <h3 class="font-bold text-lg text-gray-900">Credit Card Fraud Detection</h3>
+          <ul class="mt-2 text-gray-600 text-sm space-y-1 list-disc list-inside">
+            <li>Compared LR, Decision Tree, Random Forest, and XGBoost on imbalanced Kaggle dataset.</li>
+            <li>Optimized for recall and AUC to minimize missed fraud in real-world conditions.</li>
+          </ul>
+        </article>
+
+        <article class="card card-accent p-6">
+          <div class="flex items-start justify-between mb-2">
+            <div><span class="tag">R</span><span class="tag">Regression</span><span class="tag">Analytics</span></div>
+            <a href="https://github.com/p-lalith/Social-Media-Ad-ROI-Analysis-" target="_blank" class="text-xs text-gray-400 hover:text-gray-700 font-semibold shrink-0 ml-2">GitHub →</a>
+          </div>
+          <h3 class="font-bold text-lg text-gray-900">Social Media Ad ROI Analysis</h3>
+          <ul class="mt-2 text-gray-600 text-sm space-y-1 list-disc list-inside">
+            <li>Identified clicks as the strongest ROI driver; Pinterest as a negative-ROI channel.</li>
+            <li>Built regression models to surface actionable audience and platform recommendations.</li>
+          </ul>
+        </article>
+
+        <article class="card card-accent p-6">
+          <div class="flex items-start justify-between mb-2">
+            <div><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Federated ML</span></div>
+            <a href="https://github.com/p-lalith/federated-defense-app" target="_blank" class="text-xs text-gray-400 hover:text-gray-700 font-semibold shrink-0 ml-2">GitHub →</a>
+          </div>
+          <h3 class="font-bold text-lg text-gray-900">FedShield — Federated Defense Lab</h3>
+          <ul class="mt-2 text-gray-600 text-sm space-y-1 list-disc list-inside">
+            <li>Interactive Streamlit app simulating federated learning defense against data poisoning attacks.</li>
+            <li>Implements RANSAC-based robust detection, Byzantine fault tolerance, and anomaly scoring.</li>
+          </ul>
+        </article>
+
+        <article class="card card-accent p-6">
+          <div class="flex items-start justify-between mb-2">
+            <div><span class="tag">Tableau</span><span class="tag">HR Analytics</span></div>
+            <a href="https://github.com/p-lalith/HR-Analytics-Tableau" target="_blank" class="text-xs text-gray-400 hover:text-gray-700 font-semibold shrink-0 ml-2">GitHub →</a>
+          </div>
+          <h3 class="font-bold text-lg text-gray-900">HR Attrition Analytics Dashboard</h3>
+          <ul class="mt-2 text-gray-600 text-sm space-y-1 list-disc list-inside">
+            <li>Built a 6-chart Tableau dashboard on 1,470 IBM employees — attrition by job role, department, age band, overtime, and marital status.</li>
+            <li>Surfaced key drivers: Sales Reps at 39.8% attrition, overtime employees 3× more likely to leave.</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume" class="bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 py-16">
+      <span class="section-label">Resume</span>
+      <h2 class="section-title">Download</h2>
+      <p class="text-gray-600 mt-4">Get a copy of my one-page résumé.</p>
+      <a href="resume.pdf" class="btn-primary inline-block mt-5" download>Download PDF</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="hero-bg">
+    <div class="max-w-5xl mx-auto px-4 py-16 text-center">
+      <span class="text-xs uppercase tracking-widest text-blue-300 font-semibold">Get In Touch</span>
+      <h2 class="text-3xl font-extrabold text-white mt-2">Let's work together.</h2>
+      <p class="text-slate-300 mt-3">Open to internships and roles in Data Science, Analytics, and Strategy.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a class="btn-primary" href="mailto:LXP230038@utdallas.edu">Email Me</a>
+        <a class="btn-outline" href="https://www.linkedin.com/in/lalith-polikepati/" target="_blank">LinkedIn</a>
+        <a class="btn-outline" href="https://github.com/p-lalith" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 text-center text-xs text-gray-400 bg-slate-50">
     © <span id="year"></span> Lalith Polikepati · Built with GitHub Pages
   </footer>
 
